@@ -122,7 +122,7 @@ def crypto_prices():
     col2.metric(col8_selection, col8_price, col8_percent),
     col3.metric(col9_selection, col9_price, col9_percent))
 
-if st.button('Get Updated Crypto Prices'):
+if st.button('Get updated crypto prices'):
     crypto_prices()
 else:
     crypto_prices()
@@ -156,7 +156,8 @@ interval = st.radio("Select interval", intervals, format_func=lambda x: interval
 def pull_data(option = 'ETHUSDT', 
               interval = Client.KLINE_INTERVAL_1WEEK, 
               start = '1 Jan, 2021', 
-              end = '31 Dec, 2021'):
+              end = '31 Dec, 2021',
+              metric = 'close'):
 
     klines = client.get_historical_klines(option, interval, start, end)
     data = pd.DataFrame(klines)
@@ -173,16 +174,17 @@ def pull_data(option = 'ETHUSDT',
     fig = px.line(        
             data, #Data Frame
             x = "close_time", #Columns from the data frame
-            y = "close",
-            title = f"{option.rstrip('USDT')} price over time",
-            width=1000
+            y = metric,
+            title = f"{option.rstrip('USDT')} {metric} over time",
+            width=1000,
+            template='simple_white'
         )
     fig.update_traces(line_color = "maroon")
     st.plotly_chart(fig)
     return data
 
 if st.button('Get Graph'):
-    data = pull_data(option, interval, start, end)
+    data = pull_data(option, interval, start, end, metric)
 else:
     data = pull_data()
 
@@ -255,7 +257,9 @@ st.write("")
 st.write("")
 st.write("")
 
-st.header('**All Crypto Prices**')
+now = dt.datetime.now().strftime("%d %B, %Y at %H:%M:%S sec")
+
+st.header(f'**All Crypto Prices on {now}**')
 
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
@@ -271,7 +275,7 @@ grid_response = AgGrid(
     fit_columns_on_grid_load=False,
     theme='dark', #Add theme color to the table
     enable_enterprise_modules=True,
-    height=350, 
+    height=500, 
     width='100%',
     reload_data=True
 )
@@ -285,3 +289,11 @@ st.write("")
 st.write("")
 st.write("")
 st.info('Created by Jose Caloca')
+
+# Add Link to your repo
+'''
+    [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/josecaloca) 
+    [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josecaloca/)
+    [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jose.caloca3@gmail.com) 
+'''
+st.markdown("<br>",unsafe_allow_html=True)
