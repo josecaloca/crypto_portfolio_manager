@@ -1,10 +1,4 @@
-# binance
-
-# Watch the tutorial video
-
-[How to build a Cryptocurrency Price App in Python using Binance API | Streamlit #28](https://youtu.be/CkcJ9_dpjqw)
-
-<a href="https://youtu.be/xt4hrtG4t3s"><img src="http://img.youtube.com/vi/CkcJ9_dpjqw/0.jpg" alt="How to build a Cryptocurrency Price App in Python using Binance API | Streamlit #28" title="How to build a Cryptocurrency Price App in Python using Binance API | Streamlit #28" width="500" /></a>
+# Cryptocurrency Portfolio Manager with Real Life Data
 
 # Demo
 
