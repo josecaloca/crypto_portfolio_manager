@@ -145,15 +145,15 @@ intervals_option = {Client.KLINE_INTERVAL_1MINUTE : '1 minute', Client.KLINE_INT
 # Different metrics to display
 metric_plot = ['open_time','open', 'high', 'low', 'close', 'volume','close_time', 'qav','num_trades','taker_base_vol','taker_quote_vol', 'ignore']
 # Add widgets to the webapp
-option = column1.selectbox("Select Cryptocurrency to visualise", crypto_symbols)
-metric = column1.selectbox("Select metric", metric_plot)
+option = column1.selectbox("Select Cryptocurrency to visualise", crypto_symbols, crypto_symbols.index('ETHUSDT'))
+metric = column1.selectbox("Select metric", metric_plot, metric_plot.index('close'))
 start = column2.date_input("Input start date", dt.date(2021, 1, 1)).strftime("%d %B, %Y")
 end = column2.date_input("Input end date", dt.date(2021, 12, 31)).strftime("%d %B, %Y")
 interval = st.radio("Select interval", intervals, format_func=lambda x: intervals_option.get(x))
 
 # pull historical data from binance API
-'BTCUSDT'.rstrip('USDT')
-def pull_data(option = 'BTCUSDT', 
+
+def pull_data(option = 'ETHUSDT', 
               interval = Client.KLINE_INTERVAL_1WEEK, 
               start = '1 Jan, 2021', 
               end = '31 Dec, 2021'):
@@ -179,11 +179,28 @@ def pull_data(option = 'BTCUSDT',
         )
     fig.update_traces(line_color = "maroon")
     st.plotly_chart(fig)
+    return data
 
 if st.button('Get Graph'):
-    pull_data(option, interval, start, end)
+    data = pull_data(option, interval, start, end)
 else:
-    pull_data()
+    data = pull_data()
+
+# Add download button
+
+@st.cache
+
+def convert_df(df):
+     # IMPORTANT: Cache the conversion to prevent computation on every rerun
+     return df.to_csv()
+
+csv = convert_df(data)
+
+st.download_button(
+     label="Download data as CSV",
+     data=csv,
+     file_name='crypto_data.csv',
+     mime='text/csv')
 
 ##########################
 # Add another section
@@ -225,7 +242,7 @@ with st.expander("Click to Expand"):
         textinfo = "value"
     ))
 
-    st.header("Pie chart")
+    st.header("Share of Cryptocurrencies in the portfolio")
     st.plotly_chart(fig)
 
 
