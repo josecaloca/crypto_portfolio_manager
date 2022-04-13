@@ -284,6 +284,19 @@ data = grid_response['data']
 selected = grid_response['selected_rows'] 
 df = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
 
+st.markdown('''
+### **TODO**:
+
+- Add top gainers and top loosers crypto currencies table
+- Add VaR of the portfolio
+- Add Fear and Greed Index
+
+Ideally:
+- Add chatbot of financial/crypto related news
+- Add cryptobot to operate on binance based on an algorithmic trading strategy
+''')
+
+
 st.write("")
 st.write("")
 st.write("")
