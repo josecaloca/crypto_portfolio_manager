@@ -249,5 +249,8 @@ data = grid_response['data']
 selected = grid_response['selected_rows'] 
 df = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df
 
-
+st.write("")
+st.write("")
+st.write("")
+st.write("")
 st.info('Created by Jose Caloca')
