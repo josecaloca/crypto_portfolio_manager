@@ -17,7 +17,10 @@ st.markdown('''# **Ongoing crypto project**
 ## **Portfolio Manager Using Binance API**
 A simple cryptocurrency price app pulling live price data from **Binance API**.
 ''')
-
+st.write("")
+st.write("")
+st.write("")
+st.write("")
 st.header('**Selected Price**')
 st.write("")
 st.write("")
@@ -149,27 +152,38 @@ end = column2.date_input("Input end date", dt.date(2021, 12, 31)).strftime("%d %
 interval = st.radio("Select interval", intervals, format_func=lambda x: intervals_option.get(x))
 
 # pull historical data from binance API
-klines = client.get_historical_klines('BTCUSDT', Client.KLINE_INTERVAL_1WEEK, '1 Jan, 2021', '31 Dec, 2021')
-data = pd.DataFrame(klines)
- # create colums name
-data.columns = metric_plot
-# change the type of variables from object to float
-for col in data.columns:
-    data[col] = data[col].astype(float)
-# change to datetime type
-data.close_time = pd.to_datetime(data.close_time, unit='ms')
-data.open_time = pd.to_datetime(data.open_time, unit='ms')
+'BTCUSDT'.rstrip('USDT')
+def pull_data(option = 'BTCUSDT', 
+              interval = Client.KLINE_INTERVAL_1WEEK, 
+              start = '1 Jan, 2021', 
+              end = '31 Dec, 2021'):
 
-# Plot historical data
-fig = px.line(        
-        data, #Data Frame
-        x = "close_time", #Columns from the data frame
-        y = "close",
-        title = "Close time along time",
-        width=1000
-    )
-fig.update_traces(line_color = "maroon")
-st.plotly_chart(fig)
+    klines = client.get_historical_klines(option, interval, start, end)
+    data = pd.DataFrame(klines)
+     # create colums name
+    data.columns = metric_plot
+    # change the type of variables from object to float
+    for col in data.columns:
+        data[col] = data[col].astype(float)
+    # change to datetime type
+    data.close_time = pd.to_datetime(data.close_time, unit='ms')
+    data.open_time = pd.to_datetime(data.open_time, unit='ms')
+    
+    # Plot historical data
+    fig = px.line(        
+            data, #Data Frame
+            x = "close_time", #Columns from the data frame
+            y = "close",
+            title = f"{option.rstrip('USDT')} price over time",
+            width=1000
+        )
+    fig.update_traces(line_color = "maroon")
+    st.plotly_chart(fig)
+
+if st.button('Get Graph'):
+    pull_data(option, interval, start, end)
+else:
+    pull_data()
 
 ##########################
 # Add another section
