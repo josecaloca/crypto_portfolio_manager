@@ -17,7 +17,7 @@ st.image(
 st.markdown('''# **Ongoing crypto project**
 ## **Portfolio Manager Using Binance API**
 A simple cryptocurrency price app pulling live price data from **Binance API**.
-Prices are refreshed every 30 seconds
+Prices are refreshed every 30 seconds. 
 ''')
 
 st.write("")
@@ -25,6 +25,9 @@ st.write("")
 st.write("")
 st.write("")
 st.header('**Selected Price**')
+st.markdown('''
+#### 24 hour rolling window price change statistics
+''')
 st.write("")
 st.write("")
 st.write("")
@@ -114,9 +117,9 @@ col9_percent = f'{float(col9_df.priceChangePercent)}%'
 
 # Create a metrics price box
 
-# update every 30 secs.
-#from streamlit_autorefresh import st_autorefresh
-#st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
+# update every 30 sec: this code works nicely when the app is 
+from streamlit_autorefresh import st_autorefresh
+st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
 
 #set function to show crypto prices when the app refreshes or the counter above trigers  
 def crypto_prices():
