@@ -115,7 +115,7 @@ col9_percent = f'{float(col9_df.priceChangePercent)}%'
 # Create a metrics price box
 
 # update every 30 secs.
-st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
+#st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
 
 #set function to show crypto prices when the app refreshes or the counter above trigers  
 def crypto_prices():
