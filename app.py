@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from binance.client import Client
 import datetime as dt
-from streamlit_autorefresh import st_autorefresh
+
 
 st.set_page_config(layout="wide")
 
@@ -115,6 +115,7 @@ col9_percent = f'{float(col9_df.priceChangePercent)}%'
 # Create a metrics price box
 
 # update every 30 secs.
+#from streamlit_autorefresh import st_autorefresh
 #st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
 
 #set function to show crypto prices when the app refreshes or the counter above trigers  
