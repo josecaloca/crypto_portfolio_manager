@@ -118,8 +118,8 @@ col9_percent = f'{float(col9_df.priceChangePercent)}%'
 # Create a metrics price box
 
 # update every 30 sec: this code works nicely when the app is 
-from streamlit_autorefresh import st_autorefresh
-st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
+#from streamlit_autorefresh import st_autorefresh
+#st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
 
 #set function to show crypto prices when the app refreshes or the counter above trigers  
 def crypto_prices():
