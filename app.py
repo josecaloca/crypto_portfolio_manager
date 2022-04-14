@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from binance.client import Client
 import datetime as dt
+from streamlit_autorefresh import st_autorefresh
 
 st.set_page_config(layout="wide")
 
@@ -16,6 +17,7 @@ st.image(
 st.markdown('''# **Ongoing crypto project**
 ## **Portfolio Manager Using Binance API**
 A simple cryptocurrency price app pulling live price data from **Binance API**.
+Prices are refreshed every 30 seconds
 ''')
 
 st.write("")
@@ -112,6 +114,10 @@ col9_percent = f'{float(col9_df.priceChangePercent)}%'
 
 # Create a metrics price box
 
+# update every 30 secs.
+st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
+
+#set function to show crypto prices when the app refreshes or the counter above trigers  
 def crypto_prices():
     return (col1.metric(col1_selection, col1_price, col1_percent), 
     col2.metric(col2_selection, col2_price, col2_percent),
@@ -123,10 +129,12 @@ def crypto_prices():
     col2.metric(col8_selection, col8_price, col8_percent),
     col3.metric(col9_selection, col9_price, col9_percent))
 
+# add a button so user can update prices at any time without waiting for the auto refresher
 if st.button('Get updated crypto prices'):
     crypto_prices()
 else:
     crypto_prices()
+
 
 ##########################
 # Add another section
