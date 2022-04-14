@@ -17,6 +17,7 @@ st.markdown('''# **Ongoing crypto project**
 ## **Portfolio Manager Using Binance API**
 A simple cryptocurrency price app pulling live price data from **Binance API**.
 ''')
+
 st.write("")
 st.write("")
 st.write("")
@@ -292,7 +293,7 @@ st.markdown('''
 - Add Fear and Greed Index
 
 Ideally:
-- Add chatbot of financial/crypto related news
+- Add chatbot
 - Add cryptobot to operate on binance based on an algorithmic trading strategy
 ''')
 
