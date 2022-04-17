@@ -9,6 +9,7 @@ import datetime as dt
 
 def app():
     
+    st.title('📈 Portfolio Manager')
 
     st.header('**Selected Price**')
     st.markdown('''
@@ -290,21 +291,5 @@ def app():
     - Add Fear and Greed Index
 
     Ideally:
-    - Add chatbot
     - Add cryptobot to operate on binance based on an algorithmic trading strategy
     ''')
-
-
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    st.info('Created by Jose Caloca and Jiyoung Kim')
-
-    # Add Link to your repo
-    '''
-        [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/josecaloca) 
-        [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josecaloca/)
-        [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jose.caloca3@gmail.com) 
-    '''
-    st.markdown("<br>",unsafe_allow_html=True)
