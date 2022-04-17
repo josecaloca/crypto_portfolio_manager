@@ -30,7 +30,7 @@ st.markdown('''José Caloca''')
 '''
 st.markdown("<br>",unsafe_allow_html=True)
 
-st.markdown('''Yijoung Kim''')
+st.markdown('''Jiyoung Kim''')
 '''
     [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jiyoungkimcr) 
     [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jykcr/)
