@@ -39,7 +39,7 @@ Also, instructions on how to get the API Key are described in the following arti
 We recommend to add a CSV file to the root of this repository named ```api_key.csv``` containing both your ```api_key``` and ```api_secret``` in the corresponding order
 
 **Example**
-File name: ```api_key.csv```
+File name: ```api_key.csv```.
 
 | api_key                                                          | api_secret                                                       |
 |------------------------------------------------------------------|------------------------------------------------------------------|
