@@ -1,6 +1,5 @@
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
-from tqdm import tqdm
 
 
 def app():
