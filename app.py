@@ -1,6 +1,7 @@
-from apps import home, CryptoNews_app
+from apps import home, CryptoNews_app, gainers_losers_app
 from multiapp import MultiApp
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh
 
 app = MultiApp()
 
@@ -10,12 +11,15 @@ st.image(
     "https://c.tenor.com/7VzBpq5zYR8AAAAd/eth.gif",
     width=500,)
 
+#st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
+
 # Add all your application here
-app.add_app("Home", home.app)
-app.add_app("Crypto News", CryptoNews_app.app)
+app.add_app("📈 Home", home.app)
+app.add_app("🔎 Crypto News", CryptoNews_app.app)
+app.add_app("🔥 Gainers and Losers", gainers_losers_app.app)
+
 # The main app
 app.run()
-
 
 st.write("")
 st.write("")

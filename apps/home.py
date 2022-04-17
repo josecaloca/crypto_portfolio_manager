@@ -286,7 +286,6 @@ def app():
     st.markdown('''
     ### **TODO**:
 
-    - Add top gainers and top loosers crypto currencies table
     - Add VaR of the portfolio
     - Add Fear and Greed Index
 
