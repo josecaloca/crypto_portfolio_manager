@@ -30,6 +30,22 @@ git clone https://github.com/dataprofessor/binance
 pip install -r requirements.txt
 ```
 
+### Get Binance Api Key
+
+Make sure you have a private Binance API Key. This can be obtained by subscribing to binance by [cliking here](https://accounts.binance.com/en/register?ref=186625161)
+
+Also, instructions on how to get the API Key are described in the following article by Binance: [click here](https://www.binance.com/en/support/faq/360002502072)
+
+We recommend to add a CSV file to the root of this repository named ```api_key.csv``` containing both your ```api_key``` and ```api_secret``` in the corresponding order
+
+**Example**
+File name: ```api_key.csv```.
+
+| api_key                                                          | api_secret                                                       |
+|------------------------------------------------------------------|------------------------------------------------------------------|
+| nndIDRzmc... | AePEYUZgx... |
+
+
 ###  Launch the app
 
 ```
