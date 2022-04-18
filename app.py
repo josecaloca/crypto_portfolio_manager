@@ -1,4 +1,4 @@
-from apps import home, CryptoNews_app, gainers_losers_app
+from apps import home, CryptoNews_app, gainers_losers_app, crypto_graph_app
 from multiapp import MultiApp
 import streamlit as st
 from streamlit_autorefresh import st_autorefresh
@@ -17,6 +17,7 @@ st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
 app.add_app("📈 Home", home.app)
 app.add_app("🔎 Crypto News", CryptoNews_app.app)
 app.add_app("🔥 Gainers and Losers", gainers_losers_app.app)
+app.add_app("📉 Historical Crypto Prices", crypto_graph_app.app)
 
 # The main app
 app.run()

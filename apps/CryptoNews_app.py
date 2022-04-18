@@ -3,6 +3,10 @@ import streamlit as st
 
 
 def app():
+
+  st.title('🔎 Crypto News Finder')
+  search_option = st.sidebar.radio('🔎 Crypto News Finder', options=['Top Headlines', 'Search Keyword'])
+
   # URL sources of Crypto news websites
   sources = ["coindesk.com", "cointelegraph.com", "bitcoin.com", 
             "cryptopotato.com", "zycrypto.com", "nulltx.com", "coinquora.com",
@@ -11,10 +15,6 @@ def app():
 
   API_KEY = '-oSenqPmpCkOyafan5T5IpGtbF8K5mDZhV4-V22YT18' # get api_key from https://newscatcherapi.com/
   newscatcherapi = NewsCatcherApiClient(x_api_key=API_KEY)
-
-  st.title('🔎 Crypto News Finder')
-  search_option = st.sidebar.radio('🔎 Crypto News Finder', options=['Top Headlines', 'Search Keyword'])
-
 
   # Streamlit app configuration
   def add_articles(articles):
