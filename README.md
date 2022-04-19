@@ -57,6 +57,8 @@ Pull a docker image from the [Docker Hub Repository](https://hub.docker.com/r/jo
 docker pull josecaloca/crypto_manager
 ```
 
+## Run
+
 ### Run docker image
 
 ```
@@ -67,3 +69,23 @@ docker run -p 8501:8501 crypto_manager
 
 http://localhost:8501
 
+
+## Stop
+
+### Lists containers
+```
+docker ps
+```
+
+Get **CONTAINER ID** from the **IMAGE** josecaloca/crypto_manager
+
+
+### Stop running container
+```
+docker stop <CONTAINER ID>
+```
+
+### Delete the container
+```
+docker rm -f josecaloca/crypto_manager
+```
