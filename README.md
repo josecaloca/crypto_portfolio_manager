@@ -1,4 +1,4 @@
-# Cryptocurrency Portfolio Manager with Real Life Data
+# Cryptocurrency Portfolio Manager with Real Time Data
 
 # Demo
 
