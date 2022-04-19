@@ -47,12 +47,23 @@ streamlit run app.py
 
 # Docker
 
-The ```dockerfile``` contains all instructions to build the image
+The ```dockerfile``` contains all instructions on how the image was built
 
-###  Build a container
+###  Pull the app in a Docker container
 
 Pull a docker image from the [Docker Hub Repository](https://hub.docker.com/r/josecaloca/crypto_manager)
 
 ```
 docker pull josecaloca/crypto_manager
 ```
+
+### Run docker image
+
+```
+docker run -p 8501:8501 crypto_manager
+```
+
+### The app will be available locally on
+
+http://localhost:8501
+
