@@ -73,7 +73,7 @@ def app():
                     type="line",
                     x0=0.5, x1=0.5 + hand_length * np.cos(hand_angle),
                     y0=0.5, y1=0.5 + hand_length * np.sin(hand_angle),
-                    line=dict(color="#333", width=4)
+                    line=dict(color="green", width=4)
                 )
             ]
         )
