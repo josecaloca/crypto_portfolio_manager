@@ -13,7 +13,7 @@ def app():
             "ambcrypto.com", "cryptoslate.com", "crypto.news"]
 
 
-  API_KEY = '-oSenqPmpCkOyafan5T5IpGtbF8K5mDZhV4-V22YT18' # get api_key from https://newscatcherapi.com/
+  API_KEY = '_we-2zrdPN5SXrhZ_M3NKOtfKEqVkb4F_sJ-7XkPiNs' # get api_key from https://newscatcherapi.com/
   newscatcherapi = NewsCatcherApiClient(x_api_key=API_KEY)
 
   # Streamlit app configuration
@@ -62,7 +62,7 @@ def app():
   keyword_articles = []
 
   if search_option == 'Top Headlines':
-      news_articles = newscatcherapi.get_search(q='*', sources = sources, from_ = "16/04/2022")
+      news_articles = newscatcherapi.get_search(q='*', sources = sources, from_ = "10/05/2022")
       article_gather(api_articles)
 
       add_articles(api_articles)
