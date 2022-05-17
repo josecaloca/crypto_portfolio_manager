@@ -49,8 +49,8 @@ def app():
         layout=go.Layout(
             showlegend=False,
             margin=dict(b=0,t=10,l=10,r=10),
-            width=750,
-            height=750,
+            width=450,
+            height=450,
             paper_bgcolor=plot_bgcolor,
             annotations=[
                 go.layout.Annotation(
