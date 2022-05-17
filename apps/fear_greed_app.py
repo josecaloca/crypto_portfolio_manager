@@ -48,7 +48,7 @@ def app():
         ],
         layout=go.Layout(
             showlegend=False,
-            margin=dict(b=0,t=50,l=10,r=10),
+            margin=dict(b=0,t=10,l=10,r=10),
             width=750,
             height=750,
             paper_bgcolor=plot_bgcolor,
