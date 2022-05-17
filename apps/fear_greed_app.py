@@ -30,7 +30,7 @@ def app():
     current_value = float(index_value)
     min_value = 0
     max_value = 100
-    hand_length = np.sqrt(2) / 4
+    hand_length = np.sqrt(2) / 8
     hand_angle = np.pi * (1 - (max(min_value, min(max_value, current_value)) - min_value) / (max_value - min_value))
 
     # Plotting
@@ -49,8 +49,8 @@ def app():
         layout=go.Layout(
             showlegend=False,
             margin=dict(b=0,t=10,l=10,r=10),
-            width=450,
-            height=450,
+            width=750,
+            height=750,
             paper_bgcolor=plot_bgcolor,
             annotations=[
                 go.layout.Annotation(
