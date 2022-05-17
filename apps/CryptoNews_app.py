@@ -1,7 +1,6 @@
 from newscatcherapi import NewsCatcherApiClient
 import streamlit as st
 
-
 def app():
 
   st.title('🔎 Crypto News Finder')
@@ -11,7 +10,6 @@ def app():
   sources = ["coindesk.com", "cointelegraph.com", "bitcoin.com", 
             "cryptopotato.com", "zycrypto.com", "nulltx.com", "coinquora.com",
             "ambcrypto.com", "cryptoslate.com", "crypto.news"]
-
 
   API_KEY = '_we-2zrdPN5SXrhZ_M3NKOtfKEqVkb4F_sJ-7XkPiNs' # get api_key from https://newscatcherapi.com/
   newscatcherapi = NewsCatcherApiClient(x_api_key=API_KEY)
@@ -62,7 +60,7 @@ def app():
   keyword_articles = []
 
   if search_option == 'Top Headlines':
-      news_articles = newscatcherapi.get_search(q='*', sources = sources, from_ = "10/05/2022")
+      news_articles = newscatcherapi.get_search(q='*', sources = sources, from_ = "16/05/2022")
       article_gather(api_articles)
 
       add_articles(api_articles)
@@ -76,7 +74,7 @@ def app():
       else:
           while True:
               try:
-                  news_articles = newscatcherapi.get_search(q=search_keyword, sources = sources, from_ = "10/05/2022")
+                  news_articles = newscatcherapi.get_search(q=search_keyword, sources = sources, from_ = "16/05/2022")
                   article_gather(keyword_articles)
                   add_articles(keyword_articles)
                   break
