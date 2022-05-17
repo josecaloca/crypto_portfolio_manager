@@ -11,7 +11,9 @@ st.image(
     "https://c.tenor.com/7VzBpq5zYR8AAAAd/eth.gif",
     width=500,)
 
-st_autorefresh(interval= 1 * 60 * 1000, key="crypto_prices_refresh")
+# set autorefresh every 30 secs
+
+st_autorefresh(interval= 1 * 30 * 1000, key="crypto_prices_refresh")
 
 # Add all your application here
 app.add_app("📈 Home", home.app)
