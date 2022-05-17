@@ -76,7 +76,7 @@ def app():
       else:
           while True:
               try:
-                  news_articles = newscatcherapi.get_search(q=search_keyword, sources = sources, from_ = "16/04/2022")
+                  news_articles = newscatcherapi.get_search(q=search_keyword, sources = sources, from_ = "10/05/2022")
                   article_gather(keyword_articles)
                   add_articles(keyword_articles)
                   break
