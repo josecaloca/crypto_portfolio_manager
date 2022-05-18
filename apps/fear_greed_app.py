@@ -44,6 +44,7 @@ def app():
                 text=quadrant_text,
                 textinfo="text",
                 hoverinfo="skip",
+                textfont_size = 20
             ),
         ],
         layout=go.Layout(
