@@ -64,8 +64,8 @@ def app():
             shapes=[
                 go.layout.Shape(
                     type="circle",
-                    x0=0.48, x1=0.51,
-                    y0=0.48, y1=0.51,
+                    x0=0.49, x1=0.51,
+                    y0=0.49, y1=0.51,
                     fillcolor="#333",
                     line_color="#333",
                 ),
