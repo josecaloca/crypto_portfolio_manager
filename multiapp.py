@@ -2,6 +2,7 @@
 """
 import streamlit as st
 
+
 class MultiApp:
     """Framework for combining multiple streamlit applications.
     Usage:
@@ -21,6 +22,7 @@ class MultiApp:
         app.add_app("Bar", bar.app)
         app.run()
     """
+
     def __init__(self):
         self.apps = []
 
@@ -33,16 +35,12 @@ class MultiApp:
         title:
             title of the app. Appears in the dropdown in the sidebar.
         """
-        self.apps.append({
-            "title": title,
-            "function": func
-        })
+        self.apps.append({"title": title, "function": func})
 
     def run(self):
         # app = st.sidebar.radio(
         app = st.selectbox(
-            'Navigation',
-            self.apps,
-            format_func=lambda app: app['title'])
+            "Navigation", self.apps, format_func=lambda app: app["title"]
+        )
 
-        app['function']()
+        app["function"]()
