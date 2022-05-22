@@ -6,7 +6,7 @@ from binance.client import Client
 import pandas as pd
 import datetime as dt
 from io import BytesIO
-from pyxlsb import open_workbook as open_xlsb
+#from pyxlsb import open_workbook as open_xlsb
 
 
 def app():
