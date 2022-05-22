@@ -7,6 +7,10 @@ from binance.client import Client
 import numpy as np
 from scipy.stats import norm
 import plotly.express as px
+from io import BytesIO
+from pyxlsb import open_workbook as open_xlsb
+
+
 
 def app():
     
@@ -377,13 +381,29 @@ def app():
     now = dt.datetime.now().strftime("%d %B, %Y at %H:%M:%S sec")
 
     st.header(f'**All Crypto Prices on {now}**')
+    # add a button so user can download the data
+    def to_excel(df):
+        output = BytesIO()
+        writer = pd.ExcelWriter(output, engine='xlsxwriter')
+        df.to_excel(writer, index=False, sheet_name='Sheet1')
+        workbook = writer.book
+        worksheet = writer.sheets['Sheet1']
+        format1 = workbook.add_format({'num_format': '0.00'})
+        worksheet.set_column('A:A', None, format1)
+        writer.save()
+        processed_data = output.getvalue()
+        return processed_data
 
+    df_xlsx = to_excel(df)
+    st.download_button(label='📥 Download Data (.xlsx)',
+                       data=df_xlsx,
+                       file_name=f'All Crypto Prices on {now}.xlsx')
+    # add a button so user can update prices at any time without waiting for the auto refresher
     gb = GridOptionsBuilder.from_dataframe(df)
     gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
     gb.configure_side_bar() #Add a sidebar
     gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
     gridOptions = gb.build()
-
     grid_response = AgGrid(
         df,
         gridOptions=gridOptions,

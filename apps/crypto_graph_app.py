@@ -1,8 +1,12 @@
 import streamlit as st
 import plotly.express as px
 from binance.client import Client
+#from crypto_portfolio_manager.  # import  #import to_excel
 import pandas as pd
 import datetime as dt
+from io import BytesIO
+from pyxlsb import open_workbook as open_xlsb
+
 
 def app():
     st.title('📉 Historical Crypto Prices')
@@ -29,6 +33,19 @@ def app():
 
     # Different metrics to display
     metric_plot = ['open_time','open', 'high', 'low', 'close', 'volume','close_time', 'qav','num_trades','taker_base_vol','taker_quote_vol', 'ignore']
+    # add a button so user can download the data
+    def to_excel(df):
+        output = BytesIO()
+        writer = pd.ExcelWriter(output, engine='xlsxwriter')
+        df.to_excel(writer, index=False, sheet_name='Sheet1')
+        workbook = writer.book
+        worksheet = writer.sheets['Sheet1']
+        format1 = workbook.add_format({'num_format': '0.00'})
+        worksheet.set_column('A:A', None, format1)
+        writer.save()
+        processed_data = output.getvalue()
+        return processed_data
+    now = dt.datetime.now().strftime("%d %B, %Y at %H:%M:%S sec")
 
     # Add widgets to the webapp
     option = column1.selectbox("Select Cryptocurrency to visualise", 
@@ -85,8 +102,7 @@ def app():
         data = pull_data(option, interval, start, end, metric)
     else:
         data = pull_data()
-
-    # Add download button
+    df_xlsx = to_excel(data)
     @st.cache
 
     def convert_df(df):
@@ -95,9 +111,17 @@ def app():
 
     csv = convert_df(data)
 
-    st.download_button(
-        label="Download data as CSV",
-        data=csv,
-        file_name='crypto_data.csv',
-        mime='text/csv')
+    col1, col2 = st.columns([1, 1])
 
+    with col1:
+        st.download_button(label='📥 Download Data (.xlsx)',
+                       data=df_xlsx,
+                       file_name=f'All Crypto Prices on {now}.xlsx',
+                        key=1)
+    with col2:
+        st.download_button(
+            label="📥 Download Data (.csv)",
+            data=csv,
+            file_name='crypto_data.csv',
+            mime='text/csv',
+            key=2)
