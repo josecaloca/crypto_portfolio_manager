@@ -452,10 +452,10 @@ def app():
         writer.save()
         processed_data = output.getvalue()
         return processed_data
-
     df_xlsx = to_excel(df)
     st.download_button(
-        label="📥 Download Data (.xlsx)",
+        # on_click=prepare_download(),
+        label="📥 Download All Data (.xlsx)",
         data=df_xlsx,
         file_name=f"All Crypto Prices on {now}.xlsx",
     )
@@ -472,19 +472,30 @@ def app():
     grid_response = AgGrid(
         df,
         gridOptions=gridOptions,
-        data_return_mode="AS_INPUT",
-        update_mode="MODEL_CHANGED",
+        data_return_mode="FILTERED_AND_SORTED",
+        update_mode="MANUAL",
         fit_columns_on_grid_load=False,
         theme="dark",  # Add theme color to the table
         enable_enterprise_modules=True,
         height=500,
         width="100%",
-        reload_data=True,
+        reload_data=False,
     )
-
     selected = grid_response["selected_rows"]
     df = pd.DataFrame(selected)  # Pass the selected rows to a new dataframe df
 
+    # def prepare_download():
+    #     selected = grid_response["selected_rows"]
+    #     df = pd.DataFrame(selected)  # Pass the selected rows to a new dataframe df
+    #     df_xlsx = to_excel(df)
+    #     return df_xlsx
+    # Future download button with filtered data only
+    # st.download_button(
+    #     # on_click=prepare_download(),
+    #     label="📥 Download Data (.xlsx)",
+    #     data=df_xlsx,
+    #     file_name=f"Chosen Crypto Prices on {now}.xlsx",
+    # )
     st.markdown(
         """
     ### **TODO**:
