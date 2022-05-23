@@ -17,9 +17,9 @@ st.image(
     "https://c.tenor.com/7VzBpq5zYR8AAAAd/eth.gif", width=500,
 )
 
-# set autorefresh every 30 secs
+# set autorefresh every 150 secs
 
-st_autorefresh(interval=1 * 30 * 1000, key="crypto_prices_refresh")
+st_autorefresh(interval=1 * 150 * 1000, key="crypto_prices_refresh")
 
 # Add all your application here
 app.add_app("📈 Home", home.app)
@@ -62,5 +62,19 @@ st.markdown("""Marek Wrucha""")
 """
     [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mareckiw) 
     [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marek-wrucha//)
+"""
+st.markdown("<br>", unsafe_allow_html=True)
+
+st.markdown("""Diego Martinez""")
+"""
+    [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DiegoMartinez009) 
+    [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](http://linkedin.com/in/diegoronaldorodr%C3%ADguezmart%C3%ADnez27274a189)
+"""
+st.markdown("<br>", unsafe_allow_html=True)
+
+st.markdown("""Steve Mocanu""")
+"""
+    [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DiegoMartinez009) 
+    [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/stevemocanu/)
 """
 st.markdown("<br>", unsafe_allow_html=True)
