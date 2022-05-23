@@ -488,9 +488,6 @@ def app():
     st.markdown(
         """
     ### **TODO**:
-
-    - Add Fear and Greed Index
-
     Ideally:
     - Add cryptobot to operate on binance based on an algorithmic trading strategy
     """
