@@ -111,5 +111,5 @@ def app():
     )
 
     st.plotly_chart(fig, use_container_width=True)
-    link = "[Fear and Greed index explanation](https://www.cnn.com/markets/fear-and-greed#:~:text=FEAR%20%26%20GREED%20INDEX%20FAQs&text=The%20Fear%20%26%20Greed%20Index%20is,to%20have%20the%20opposite%20effect.)"
+    link = "[Fear and Greed index explanation](https://alternative.me/crypto/fear-and-greed-index/)"
     st.markdown(link, unsafe_allow_html=True)
