@@ -1,5 +1,7 @@
 # Cryptocurrency Portfolio Manager with Real Time Data
 
+![flowchart](https://user-images.githubusercontent.com/59198442/170316366-c2023332-fbd0-4c18-83bc-e94177778637.jpg)
+
 # Demo
 
 Launch the web app:
