@@ -75,7 +75,7 @@ def app():
 
     if search_option == "Top Headlines":
         news_articles = newscatcherapi.get_search(
-            q="*", sources=sources, from_="17/05/2022"
+            q="*", sources=sources, from_="31/05/2022"
         )
         article_gather(api_articles)
 
@@ -91,7 +91,7 @@ def app():
             while True:
                 try:
                     news_articles = newscatcherapi.get_search(
-                        q=search_keyword, sources=sources, from_="17/05/2022"
+                        q=search_keyword, sources=sources, from_="31/05/2022"
                     )
                     article_gather(keyword_articles)
                     add_articles(keyword_articles)
